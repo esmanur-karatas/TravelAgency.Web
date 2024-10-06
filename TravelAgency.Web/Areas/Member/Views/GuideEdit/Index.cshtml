@@ -1,0 +1,31 @@
+﻿@model TravelAgency.Web.Areas.Member.Models.GuideEditViewModel
+@{
+    ViewData["Title"] = "GuideAdd";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h1>Rehber Ekleme Sayfası</h1>
+<form method="post" enctype="multipart/form-data">
+    @Html.Label("Adınız")
+    <input type="text" asp-for="GuideName" class="form-control" />
+    </br>
+    @Html.Label("Soyadınız")
+    <input type="text" asp-for="GuideSurname" class="form-control" />
+    </br>
+    @Html.Label("Açıklama")
+    <input type="text" asp-for="GuideDescription" class="form-control" />
+    </br>
+    @Html.Label("Instagram Adresiniz")
+    <input type="text" asp-for="InstagramUrl" class="form-control" />
+    </br>
+    @Html.Label("Twitter Adresiniz")
+    <input type="text" asp-for="InstagramUrl" class="form-control" />
+    </br>
+    <div class="form-group">
+        <label>Resim Seçiniz</label>
+        <input type="file" asp-for="Image" />
+    </div>
+    <br />
+    <button class="btn bg-gradient-success">Ekle</button>
+</form>
+

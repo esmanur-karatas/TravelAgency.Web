@@ -1,0 +1,52 @@
+﻿@using EntityLayer.Concrete
+@model List<Hotels>
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-start mb-5 pb-3">
+            <div class="col-md-7 heading-section ftco-animate">
+                <span class="subheading">Özel Teklifler</span>
+                <h2 class="mb-4"><strong>Popüler</strong> Oteller &amp; Odalar</h2>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-sm col-md-6 col-lg ftco-animate">
+                    <div class="destination">
+                        <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(@item.HotelImageUrl);">
+                            <div class="icon d-flex justify-content-center align-items-center">
+                                <span class="icon-search2"></span>
+                            </div>
+                        </a>
+                        <div class="text p-3">
+                            <div class="d-flex">
+                                <div class="one">
+                                    <h3><a href="#">@item.HotelCity</a></h3>
+                                    <p class="rate">
+                                        <i class="icon-star"></i>
+                                        <i class="icon-star"></i>
+                                        <i class="icon-star"></i>
+                                        <i class="icon-star"></i>
+                                        <i class="icon-star-o"></i>
+                                        <span>@item.HotelCapacity Kişilik</span>
+                                    </p>
+                                </div>
+                                <div class="two">
+                                    <span class="price per-price">$@item.HotelPrice<br><small>/@item.HotelCapacity</small></span>
+                                </div>
+                            </div>
+                            <p>@item.HotelDescription</p>
+                            <hr>
+                            <p class="bottom-area d-flex">
+                                <span class="ml-auto"><a href="#">Rezervasyon Yap</a></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            }
+            
+        </div>
+    </div>
+</section>

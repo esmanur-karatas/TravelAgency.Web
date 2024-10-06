@@ -1,0 +1,82 @@
+﻿@model EntityLayer.Concrete.Destination
+@{
+    ViewData["Title"] = "UpdateDestination";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Tur Rotasılarını Güncelle</h1>
+<div class="row">
+    <div class="col-xl">
+        <div class="card mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <small class="text-muted float-end">Güncelle</small>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    @Html.HiddenFor(x => x.DestinationId)
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-fullname">@Html.Label("Şehir")</label>
+                        <input type="text" class="form-control" id="basic-default-fullname" asp-for="DestinationCity" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-fullname">@Html.Label("Görsel Url")</label>
+                        <input type="text" class="form-control" id="basic-default-fullname" asp-for="DestinationImageTwo" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-email">@Html.Label("Kapasite")</label>
+                        <div class="input-group input-group-merge">
+                            <input type="text" id="basic-default-email" class="form-control" asp-for="DestinationStatus" />
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-company">@Html.Label("Fiyat")</label>
+                        <input type="text" class="form-control" id="basic-default-company" asp-for="DestionationPrice" />
+                    </div>
+                  
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-phone">@Html.Label("Süre")</label>
+                        <input type="text" id="basic-default-phone"  class="form-control phone-mask" asp-for="DestionationDaysNight" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-phone">@Html.Label("Açıklama")</label>
+                        <input type="text" id="basic-default-phone" class="form-control phone-mask" asp-for="DestionationDescription" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-phone">@Html.Label("Detay")</label>
+                        <input type="text" id="basic-default-phone" class="form-control phone-mask" asp-for="DestinationDetails" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-phone">@Html.Label("Detay2")</label>
+                        <input type="text" id="basic-default-phone" class="form-control phone-mask" asp-for="DestinationDetails2" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-phone">@Html.Label("Görsel 2 Url")</label>
+                        <input type="text" id="basic-default-phone" class="form-control phone-mask" asp-for="DestinationImageTwo" />
+                    </div>
+
+                    <div class="mb-3">
+                    <label class="form-label" for="basic-default-phone">@Html.Label("Görsel 3 Url")</label>
+                    <input type="text" id="basic-default-phone" class="form-control phone-mask" asp-for="DestinationImageTwo2" />
+            </div>
+
+                    <div class="mb-3">
+                    <label class="form-label" for="basic-default-phone">@Html.Label("Tag")</label>
+                    <input type="text" id="basic-default-phone" class="form-control phone-mask" asp-for="DestinationTag" />
+            </div>
+                    <button class="badge bg-label-info me-1"><i class="bx bx-edit-alt me-1"></i>Güncelle</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

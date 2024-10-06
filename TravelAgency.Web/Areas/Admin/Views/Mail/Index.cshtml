@@ -1,0 +1,39 @@
+﻿@model TravelAgency.Web.Models.MailRequestModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<h1>Mail Gönder</h1>
+<div class="row">
+    <div class="col-xl">
+        <div class="card mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <small class="text-muted float-end">Mail Gönder</small>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-fullname">@Html.Label("Alıcı Mail Adresi")</label>
+                        <input type="text" class="form-control" id="basic-default-fullname" asp-for="ReceiverMail" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-fullname">@Html.Label("Konu Başlığı")</label>
+                        <input type="text" class="form-control" id="basic-default-fullname" asp-for="Subject" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-fullname">@Html.Label("Mesajınız")</label>
+                        <textarea cols="30" rows="5" type="text" class="form-control" id="basic-default-fullname" asp-for="Body"></textarea>
+                    </div>
+                    <button class="badge bg-label-info me-1"><i class="bx bx-send me-1"></i>Gönder</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

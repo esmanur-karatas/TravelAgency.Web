@@ -1,0 +1,54 @@
+﻿@using EntityLayer.Concrete
+@model List<AppUser>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int sayac = 0;
+}
+
+<h1>Kullanıcı Yorumları</h1>
+<div class="card">
+    <div class="table-responsive text-nowrap">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Kullanıcı Adı</th>
+                    <th>Ad Soyad</th>
+                    <th>Mail</th>
+                    <th>Sil</th>
+                    <th>Düzenle</th>
+                    <th>Yorumlar</th>
+                    <th>Tur Geçmişi</th>
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        @{
+                            sayac = @sayac + 1;
+                        }
+                        <td>@sayac</td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i><strong>@item.UserName</strong></td>
+                        <td>@item.Name @item.Surname</td>
+                        <td>@item.Email</td>
+                        <td><a style="border:2px solid #000" href="/Admin/User/DeleteUser/@item.Id" class="badge bg-label-danger me-1"><i class="bx bx-trash me-1"></i>Sil</td>
+                        <td><a style="border:2px solid #000" href="/Admin/User/EditUser/@item.Id" class="badge bg-label-info me-1"><i class="bx bx-edit-alt me-1"></i>Düzenle</a></td>
+                        <td><a style="border:2px solid #000" src="/Admin/User/CommentUser/@item.Id/" class="badge bg-label-primary me-1"><i class="bx bx-comment me-1"></i>Yorumlar</a></td>
+                        <td><a style="border:2px solid #000" href="/Admin/User/ReservationUser/@item.Id" class="badge bg-label-success me-1"><i class='bx bx-history'></i>Tur Geçmişi</a></td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<br />
+<a href="/Login/SignUp/" class="badge bg-label-info me-1" style="border:2px solid #000"><i class="bx bx-add me-1"></i>Yeni Kullanıcı Kaydı</a>
+
+
+
+
+

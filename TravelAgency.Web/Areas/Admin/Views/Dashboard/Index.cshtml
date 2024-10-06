@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<html lang="en"
+      class="light-style layout-menu-fixed"
+      dir="ltr"
+      data-theme="theme-default"
+      data-assets-path="/sneat-1.0.0/assets/"
+      data-template="vertical-menu-template-free">
+<body>
+    <div class="content-wrapper">
+        <!-- Content -->
+
+        <div class="container-xxl flex-grow-1 container-p-y">
+            <div class="row">
+                @await Component.InvokeAsync("_DashboardBanner")
+
+                @await Component.InvokeAsync("_Cards1Statistic")
+
+                @await Component.InvokeAsync("_TotalRevenue")
+
+                @await Component.InvokeAsync("_Card2Statistic")
+            </div>
+            <div class="row">
+
+                @await Component.InvokeAsync("_DestionationStatistic")
+
+                @await Component.InvokeAsync("_DestionationStatistic2")
+
+                @await Component.InvokeAsync("_DahboardGuideList")
+
+            </div>
+        </div>
+        <div class="content-backdrop fade"></div>
+    </div>
+</body>
+</html>
+

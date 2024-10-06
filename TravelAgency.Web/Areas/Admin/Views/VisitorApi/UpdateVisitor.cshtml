@@ -1,0 +1,49 @@
+﻿@model VisitorViewModel
+@{
+    ViewData["Title"] = "UpdateVisitor";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Ziyaretçi Güncelle</h1>
+<div class="row">
+    <div class="col-xl">
+        <div class="card mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <small class="text-muted float-end">Güncelle</small>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    @Html.HiddenFor(x => x.VisitorId)
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-fullname">@Html.Label("Ad")</label>
+                        <input type="text" class="form-control" id="basic-default-fullname" asp-for="VisitorName" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-fullname">@Html.Label("Soyad")</label>
+                        <input type="text" class="form-control" id="basic-default-fullname" asp-for="VisitorSurname" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-fullname">@Html.Label("Mail")</label>
+                        <input type="text" class="form-control" id="basic-default-fullname" asp-for="VisitorMail" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-fullname">@Html.Label("Şehir")</label>
+                        <input type="text" class="form-control" id="basic-default-fullname" asp-for="VisitorCity" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-fullname">@Html.Label("Ülke")</label>
+                        <input type="text" class="form-control" id="basic-default-fullname" asp-for="VisitorCountry" />
+                    </div>
+                    <button class="badge bg-label-info me-1"><i class="bx bx-edit-alt me-1"></i>Güncelle</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

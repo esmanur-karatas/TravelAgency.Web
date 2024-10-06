@@ -1,0 +1,45 @@
+﻿@model List<AnnouncementListDTO>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<h1>Duyuru Listesi</h1>
+<div class="card">
+    <div class="table-responsive text-nowrap">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Başlık</th>
+                    <th>İçerik</th>
+                    <th>Tarih</th>
+                    <th>Detaylar</th>
+                    <th>Güncelle</th>
+                    <th>Sil</th>
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        @{
+                            count = @count + 1;
+                        }
+                        <td>@count</td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i><strong>@item.Title</strong></td>
+                        <td>@item.Content</td>
+                        <td>@item.Date.ToString("dd/MMM/yyyy")</td>
+                        <td><a style="border:2px solid #000" href="/Admin/Announcement/DeleteComment/@item.AnnouncementId" class="badge bg-label-primary me-1"><i class='bx bx-right-arrow-alt'></i>Detaylar</a></td>
+                        <td><a style="border:2px solid #000" href="/Admin/Announcement/UpdateAnnouncement/@item.AnnouncementId" class="badge bg-label-success me-1"><i class="bx bx-edit-alt me-1"></i>Güncelle</a></td>
+                        <td><a style="border:2px solid #000" href="/Admin/Announcement/DeleteAnnouncement/@item.AnnouncementId" class="badge bg-label-danger me-1"><i class="bx bx-trash me-1"></i>Sil</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<br />
+<a href="/Admin/Announcement/AddAnnouncement" class="badge bg-label-info me-1" style="border:2px solid #000"><i class="bx bx-plus me-1"></i>Yeni Duyuru Ekle</a>
+

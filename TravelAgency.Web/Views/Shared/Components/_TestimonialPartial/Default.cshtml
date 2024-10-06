@@ -1,0 +1,43 @@
+﻿@using EntityLayer.Concrete
+@model List<Testimonial>
+<section class="ftco-section testimony-section bg-light">
+    <div class="container">
+        <div class="row justify-content-start">
+            <div class="col-md-5 heading-section ftco-animate">
+                <span class="subheading">En İyi Rehber Sitesi</span>
+                <h2 class="mb-4 pb-3"><strong>Neden</strong> Bizi Seçmelisiniz?</h2>
+                <p>Sitemizde, dünyanın dört bir yanındaki en güzel destinasyonları keşfetmenizi sağlıyoruz. Size özel hazırlanmış tur paketleri ve detaylı gezi rehberleri ile unutulmaz bir tatil deneyimi sunuyoruz. Hayalinizdeki yolculuğa çıkmak için bize katılın ve maceranıza başlayın!</p>
+                <p>Düşünceleriniz bizim için çok değerli.</p>
+                <p><a href="#" class="btn btn-primary btn-outline-primary mt-4 px-4 py-3">Daha Fazla</a></p>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-6 heading-section ftco-animate">
+                <span class="subheading">Yorumlar</span>
+                <h2 class="mb-4 pb-3"><strong>Misafirlerimiz</strong> Diyor Ki</h2>
+                <div class="row ftco-animate">
+                    <div class="col-md-12">
+                        <div class="carousel-testimony owl-carousel">
+                            @foreach (var item in Model)
+                            {
+                                <div class="item">
+                                    <div class="testimony-wrap d-flex">
+                                        <div class="user-img mb-5" style="background-image: url(@item.ClientImageUrl)">
+                                            <span class="quote d-flex align-items-center justify-content-center">
+                                                <i class="icon-quote-left"></i>
+                                            </span>
+                                        </div>
+                                        <div class="text ml-md-4">
+                                            <p class="mb-5">@item.Cooment</p>
+                                            <p class="name">@item.Client</p>
+                                            <span class="position">@item.City</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

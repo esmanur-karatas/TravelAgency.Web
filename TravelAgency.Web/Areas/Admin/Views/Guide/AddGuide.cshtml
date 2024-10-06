@@ -1,0 +1,63 @@
+﻿@model EntityLayer.Concrete.Guide
+@{
+    ViewData["Title"] = "AddGuide";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<h1>Yeni Rehber Ekle</h1>
+<div class="row">
+    <div class="col-xl">
+        <div class="card mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <small class="text-muted float-end">Ekle</small>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-fullname">@Html.Label("İsim")</label>
+                        <input type="text" class="form-control" id="basic-default-fullname" asp-for="GuideName" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-fullname">@Html.Label("Soyisim")</label>
+                        <input type="text" class="form-control" id="basic-default-fullname" asp-for="GuideSurname" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-fullname">@Html.Label("Açıklama")</label>
+                        <input type="text" class="form-control" id="basic-default-fullname" asp-for="GuideDescription" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-fullname">@Html.Label("Görsel Url")</label>
+                        <input type="text" class="form-control" id="basic-default-fullname" asp-for="ImageUrl" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-fullname">@Html.Label("Twitter Url")</label>
+                        <input type="text" class="form-control" id="basic-default-fullname" asp-for="TwitterUrl" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-fullname">@Html.Label("İnstagram Url")</label>
+                        <input type="text" class="form-control" id="basic-default-fullname" asp-for="InstagramUrl" />
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-email">@Html.Label("Kapasite")</label>
+                        <div class="input-group input-group-merge">
+                            <input type="text" id="basic-default-email" class="form-control" asp-for="Status" />
+                        </div>
+                    </div>
+                    <button class="badge bg-label-info me-1"><i class="bx bx-send me-1"></i>Gönder</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

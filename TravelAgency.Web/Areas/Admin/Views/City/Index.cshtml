@@ -1,0 +1,234 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<h4>Şehir - Ülke İşlemleri</h4>
+<br />
+<button style="border:2px solid #000" id="btnGetList" class="badge bg-label-primary me-1">
+    <i class='bx bx-list-ul'></i>Şehir Listesi
+</button>
+<button style="border:2px solid #000" id="btnGetById" class="badge bg-label-success me-1">
+    <i class='bx bx-list-ul'></i>Şehir Getir
+</button>
+<button style="border:2px solid #000" id="btnAddCity" class="badge bg-label-info me-1">
+    <i class='bx bx-plus'></i>Şehir Ekle
+</button>
+<button style="border:2px solid #000" id="btnDeleteCity" class="badge bg-label-danger me-1">
+    <i class='bx bx-trash'></i>Şehir Sil
+</button>
+<button style="border:2px solid #000" id="btnUpdateCity" class="badge bg-label-warning me-1">
+    <i class='bx bx-edit-alt'></i>Şehir Güncelle
+</button>
+<br />
+<br />
+
+<div class="card" id="citylist">
+    <div class="table-responsive text-nowrap"></div>
+</div>
+<br />
+<br />
+
+<div class="row">
+    <div class="col-xl">
+        <div class="card mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <label class="form-label" for="basic-default-fullname">@Html.Label("Şehir Id değerini giriniz.")</label>
+                    <input type="text" class="form-control" id="txtid" placeholder="Şehir Id değerini giriniz." />
+                </div>
+            </div>
+
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-fullname">@Html.Label("Silinecek şehrin Id değerini giriniz.")</label>
+                    <input type="text" class="form-control" id="txtcityid" placeholder="Silinecek şehrin Id değerini giriniz." />
+                    </div>
+                </div>
+
+            <div class="card" id="destinationListById">
+                <div class="table-responsive text-nowrap"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-xl">
+                    <div class="card mb-4">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <small class="text-muted float-end">Güncelle</small>
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <label class="form-label" for="basic-default-fullname">@Html.Label("Güncellenecek Id Değerini Giriniz:")</label>
+                                <input type="text" class="form-control" id="txtcityeditid" placeholder="Güncellenecek Id Değerini Giriniz:" />
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label" for="basic-default-fullname">@Html.Label("Şehir Adı")</label>
+                                <input type="text" class="form-control" id="txtcityname" placeholder="Şehir" />
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label" for="basic-default-fullname">@Html.Label("Gün-Gece")</label>
+                                <input type="text" class="form-control" id="txtcitydaynight" placeholder="Gün-Gece" />
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label" for="basic-default-email">@Html.Label("Fiyat")</label>
+                                <div class="input-group input-group-merge">
+                                    <input type="text" id="txtcitprice" class="form-control" placeholder="Fiyat" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xl">
+                    <div class="card mb-4">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <small class="text-muted float-end">Ekle</small>
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <label class="form-label" for="basic-default-fullname">@Html.Label("Şehir")</label>
+                                <input type="text" class="form-control" id="txtcity" placeholder="Şehir" />
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label" for="basic-default-fullname">@Html.Label("Gün-Gece")</label>
+                                <input type="text" class="form-control" id="txtdaynight" placeholder="Gün-Gece" />
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label" for="basic-default-email">@Html.Label("Fiyat")</label>
+                                <div class="input-group input-group-merge">
+                                    <input type="text" id="txtprice" class="form-control" placeholder="Fiyat" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                $("#btnGetList").click(function () {
+                    $.ajax({
+                        contentType: "application/json",
+                        dataType: "json",
+                        type: "GET",
+                        url: "/Admin/City/CityList/",
+                        success: function (response) {
+                            let w = jQuery.parseJSON(response);
+                            console.log(w);
+                            let tablehtml = `
+                                                                                            <table class="table">
+                                                                                                <thead>
+                                                                                                    <tr>
+                                                                                                        <th>Şehir Adı</th>
+                                                                                                        <th>Gün-Gece</th>
+                                                                                                        <th>Fiyat</th>
+                                                                                                    </tr>
+                                                                                                </thead>
+                                                                                                <tbody>`;
+
+                            $.each(w, (index, value) => {
+                                tablehtml += `
+                                                                                            <tr>
+                                                                                                    <td>${value.DestinationCity}</td>
+                                                                                                    <td>${value.DestionationDaysNight}</td>
+                                                                                                    <td>${value.DestionationPrice} ₺</td>
+                                                                                            </tr>`;
+                            });
+
+                            tablehtml += `</tbody></table>`;
+                            $("#citylist .table-responsive").html(tablehtml);
+                        }
+                    });
+                });
+
+                $("#btnAddCity").click(function () {
+                    let cityvalues = {
+                        DestinationCity: $("#txtcity").val(),
+                        DestionationDaysNight: $("#txtdaynight").val(),
+                        DestionationPrice: $("#txtprice").val()
+                    };
+
+                    $.ajax({
+                        type: "post",
+                        url: "/Admin/City/AddCityDestination/",
+                        data: cityvalues,
+                        success: function (func) {
+                            let result = jQuery.parseJSON(func);
+                            alert("Şehir bilgisi başarılı bir şekilde eklendi.")
+                        }
+                    });
+                });
+
+                $("#btnGetById").click(x => {
+                    let id = $("#txtid").val();
+
+                    $.ajax({
+                        contentType: "application/json",
+                        dataType: "json",
+                        type: "Get",
+                        url: "/Admin/City/GetById/",
+                        data: { DestinationId: id },
+                        success: function (fun2) {
+                            let result = jQuery.parseJSON(fun2);
+                            console.log(result);
+                            let htmlstr = `
+                                                                                                    <table class="table">
+                                                                                                        <thead>
+                                                                                                            <tr>
+                                                                                                                <th>Şehir Adı</th>
+                                                                                                                <th>Gün-Gece</th>
+                                                                                                                <th>Fiyat</th>
+                                                                                                            </tr>
+                                                                                                        </thead>
+                                                                                                        <tbody>
+                                                                                                            <tr>
+                                                                                                            <td>${result.DestinationCity}</td>
+                                                                                                            <td>${result.DestionationDaysNight}</td>
+                                                                                                            <td>${result.DestionationPrice} ₺</td>
+                                                                                                    </tr>`;
+                            $("#destinationListById").html(htmlstr);
+                        }
+                    });
+                });
+
+                $("#btnDeleteCity").click(x => {
+                    let id = $("#txtcityid").val();
+                    $.ajax({
+                        url: "/Admin/City/DeleteCity/" + id,
+                        type: "post",
+                        contentType: "application/json",
+                        dataType: "json",
+                        success: function (fun3) {
+                            alert("Şehir Bilgisi Başarılı Bir Şekilde Silindi.");
+                        }
+                    });
+                });
+
+                $("#btnUpdateCity").click(function () {
+                    let values = {
+                        DestinationId: $("#txtcityeditid").val(),
+                        DestinationCity: $("#txtcityname").val(),
+                        DestionationDaysNight: $("#txtcitydaynight").val(),
+                        DestionationPrice: $("#txtcitprice").val()
+                    };
+                    $.ajax({
+                        type: "post",
+                        url: "/Admin/City/UpdateCity/",
+                        data: values,
+                        success: function (fun4) {
+                            alert("Güncelleme işlemi başarıyla gerçekleştirildi.");
+                        }
+                    });
+                });
+            </script>
+
+ 

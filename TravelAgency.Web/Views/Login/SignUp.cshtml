@@ -1,0 +1,76 @@
+﻿@model TravelAgency.Web.Models.UserRegisterViewModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Kayıt Ol</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- LINEARICONS -->
+	<link rel="stylesheet" href="/colorlib-regform-26/fonts/linearicons/style.css">
+
+	<!-- STYLE CSS -->
+	<link rel="stylesheet" href="/colorlib-regform-26/css/style.css">
+</head>
+
+<body>
+
+	<div class="wrapper">
+		<div class="inner">
+			<img src="/colorlib-regform-26/images/image-1.png" alt="" class="image-1">
+			<form method="post">
+				<h3>Yeni Hesap?</h3>
+				<div class="form-holder">
+					<span class="lnr lnr-user"></span>
+					<input type="text" class="form-control" placeholder="Adınız" asp-for="Name">
+					<span style="margin-top:30px; color:rgba(52, 152, 253)" asp-validation-for="Name" class="text-danger"></span>
+				</div>
+				<div class="form-holder">
+					<span class="lnr lnr-map"></span>
+					<input type="text" class="form-control" placeholder="Soyadınız" asp-for="Surname">
+					<span style="margin-top:30px; color:rgba(52, 152, 253)" asp-validation-for="Surname" class="text-danger"></span>
+				</div>
+				<div class="form-holder">
+					<span class="lnr lnr-envelope"></span>
+					<input type="email" class="form-control" placeholder="Mail" asp-for="Email">
+					<span style="margin-top:30px; color:rgba(52, 152, 253)" asp-validation-for="Email" class="text-danger"></span>
+				</div>
+				<div class="form-holder">
+					<span class="lnr lnr-phone-handset"></span>
+					<input type="tel" class="form-control" placeholder="Kullanıcı Adı" asp-for="UserName">
+					<span style="margin-top:30px; color:rgba(52, 152, 253)" asp-validation-for="UserName" class="text-danger"></span>
+				</div>
+				<div class="form-holder">
+					<span class="lnr lnr-lock"></span>
+					<input type="password" class="form-control" placeholder="Şifre" asp-for="Password">
+					<span style="margin-top:30px; color:rgba(52, 152, 253)" asp-validation-for="Password" class="text-danger"></span>
+				</div>
+				<div class="form-holder">
+					<span class="lnr lnr-lock"></span>
+					<input type="password" class="form-control" placeholder="Şifreyi Tekrarla" asp-for="ConfirmPassword">
+					<span style="margin-top:50px; color:rgba(52, 152, 253)" asp-validation-for="ConfirmPassword" class="text-danger"></span>
+				</div>
+				<div style="color:red; margin-top:50px" asp-validation-summary="ModelOnly">
+
+				</div>
+				<button>
+					<span>Kayıt Ol</span>
+				</button>
+				<div style="text-align:center; padding-top:20px">
+					<a href="/Login/SignIn" style="color:rgba(52, 152, 253)">
+						Giriş Yap
+					</a>
+				</div>
+			</form>
+			<img src="/colorlib-regform-26/images/image-2.png" alt="" class="image-2">
+		</div>
+
+	</div>
+
+	<script src="/colorlib-regform-26/js/jquery-3.3.1.min.js"></script>
+	<script src="/colorlib-regform-26/js/main.js"></script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
