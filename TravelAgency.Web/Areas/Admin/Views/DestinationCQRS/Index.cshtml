@@ -1,0 +1,47 @@
+﻿@model List<GetAllDestinationQueryResult>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int sayac = 0;
+}
+
+
+<h1>CQRS Tur Rotaları</h1>
+<div class="card">
+    <div class="table-responsive text-nowrap">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Şehir</th>
+                    <th>Gün-Gece</th>
+                    <th>Fiyat</th>
+                    <th>Sil</th>
+                    <th>Güncelle</th>
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        @{
+                            sayac = @sayac + 1;
+                        }
+                        <td>@sayac</td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i><strong>@item.DestinationCity")</strong></td>
+                        <td>@item.DestinationDayNight</td>
+                        <td>@item.DestinationPrice</td>
+                        <td><a style="border:2px solid #000" href="/Admin/Comment/DeleteComment" class="badge bg-label-danger me-1"><i class="bx bx-trash me-1"></i>Sil</a></td>
+                        <td><a style="border:2px solid #000" href="/Admin/Comment/DeleteComment" class="badge bg-label-succcess me-1"><i class="bx bx-edit-alt me-1"></i>Güncelle</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<br />
+<a href="/Admin/DestinationCQRS/AddDestination" class="badge bg-label-info me-1" style="border:2px solid #000"><i class="bx bx-plus me-1"></i>Yeni Tur Rotası Ekle</a>
+
+
+
+

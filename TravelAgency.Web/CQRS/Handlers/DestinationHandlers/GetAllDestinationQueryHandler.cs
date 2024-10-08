@@ -13,7 +13,7 @@ namespace TravelAgency.Web.CQRS.Handlers.DestinationHandlers
             _context = context;
         }
 
-        public List<GetAllDestinationQueryResult> Handle()
+        public List<GetAllDestinationQueryResult  > Handle()
         {
             var values = _context.Destinations.Select(x => new GetAllDestinationQueryResult
             {

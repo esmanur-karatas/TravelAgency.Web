@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Bot.Configuration;
+using TravelAgency.Web.CQRS.Handlers.DestinationHandlers;
 using TravelAgency.Web.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -40,6 +41,8 @@ builder.Services.AddScoped<IContactUsDal, EfContactUsDal>();
 
 builder.Services.AddScoped<IAnnouncementService, AnnouncementManager>();
 builder.Services.AddScoped<IAnnouncementDal, EfAnnouncementDal>();
+
+builder.Services.AddScoped<GetAllDestinationQueryHandler>();
 
 builder.Services.AddAutoMapper(typeof(Program));
 
