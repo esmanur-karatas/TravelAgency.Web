@@ -28,11 +28,11 @@
                             sayac = @sayac + 1;
                         }
                         <td>@sayac</td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i><strong>@item.DestinationCity")</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i><strong>@item.DestinationCity</strong></td>
                         <td>@item.DestinationDayNight</td>
-                        <td>@item.DestinationPrice</td>
-                        <td><a style="border:2px solid #000" href="/Admin/Comment/DeleteComment" class="badge bg-label-danger me-1"><i class="bx bx-trash me-1"></i>Sil</a></td>
-                        <td><a style="border:2px solid #000" href="/Admin/Comment/DeleteComment" class="badge bg-label-succcess me-1"><i class="bx bx-edit-alt me-1"></i>Güncelle</a></td>
+                        <td>@item.DestinationPrice ₺</td>
+                        <td><a style="border:2px solid #000" href="/Admin/DestinationCQRS/DeleteDestination/@item.DestinationId" class="badge bg-label-danger me-1"><i class="bx bx-trash me-1"></i>Sil</a></td>
+                        <td><a style="border:2px solid #000" href="/Admin/DestinationCQRS/GetDestination/@item.DestinationId" class="badge bg-label-success me-1"><i class="bx bx-edit-alt me-1"></i>Güncelle</a></td>
                     </tr>
                 }
             </tbody>
