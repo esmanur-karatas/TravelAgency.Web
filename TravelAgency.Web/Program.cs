@@ -4,10 +4,10 @@ using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Authorization;
-using Microsoft.Bot.Configuration;
 using TravelAgency.Web.CQRS.Handlers.DestinationHandlers;
 using TravelAgency.Web.Models;
 
@@ -53,6 +53,7 @@ internal class Program
         builder.Services.AddScoped<UpdateDestinationCommandHandler>();
 
         builder.Services.AddAutoMapper(typeof(Program));
+        builder.Services.AddMediatR(typeof(Program));
 
         //LOGLAMA ÝÞLEMLERÝ
         builder.Services.AddLogging(x =>
