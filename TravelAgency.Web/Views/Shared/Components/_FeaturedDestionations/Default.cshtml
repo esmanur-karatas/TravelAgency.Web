@@ -1,5 +1,7 @@
 ﻿@using EntityLayer.Concrete
 @model List<Destination>
+<div>
+    
 <section class="ftco-section ftco-destination">
     <div class="container">
         <div class="row justify-content-start mb-5 pb-3">
@@ -15,7 +17,7 @@
                     {
                         <div class="item">
                             <div class="destination">
-                                <a href="#" class="img d-flex justify-content-center align-items-center" style="background-image: url(@item.DestinationImage);">
+                                <a href="/Destination/DestinationDetails/@item.DestinationId" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url('@item.DestinationImage');">
                                     <div class="icon d-flex justify-content-center align-items-center">
                                         <span class="icon-search2"></span>
                                     </div>
@@ -32,3 +34,4 @@
         </div>
     </div>
 </section>
+</div>
