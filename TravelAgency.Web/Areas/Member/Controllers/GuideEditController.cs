@@ -39,8 +39,7 @@ namespace TravelAgency.Web.Areas.Member.Controllers
                     GuideName = model.GuideName,
                     GuideSurname = model.GuideSurname,
                     GuideDescription = model.GuideDescription,
-                    InstagramUrl = model.InstagramUrl,
-                    TwitterUrl = model.TwitterUrl,
+                    GuideDescription2 = model.GuideDescription2,
                     Status = model.Status
                 };
 
@@ -75,8 +74,7 @@ namespace TravelAgency.Web.Areas.Member.Controllers
                 GuideName = guide.GuideName,
                 GuideSurname = guide.GuideSurname,
                 GuideDescription = guide.GuideDescription,
-                InstagramUrl = guide.InstagramUrl,
-                TwitterUrl = guide.TwitterUrl,
+                GuideDescription2 = guide.GuideDescription2,
                 ImageUrl = guide.ImageUrl,
                 Status = guide.Status,
                 GuideId = guide.GuideId
@@ -101,8 +99,7 @@ namespace TravelAgency.Web.Areas.Member.Controllers
                 guide.GuideName = model.GuideName;
                 guide.GuideSurname = model.GuideSurname;
                 guide.GuideDescription = model.GuideDescription;
-                guide.InstagramUrl = model.InstagramUrl;
-                guide.TwitterUrl = model.TwitterUrl;
+                guide.GuideDescription2 = model.GuideDescription2;
                 guide.Status = model.Status;
 
                 if (model.Image != null)

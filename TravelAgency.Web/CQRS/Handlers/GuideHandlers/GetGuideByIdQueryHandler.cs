@@ -24,6 +24,7 @@ namespace TravelAgency.Web.CQRS.Handlers.GuideHandlers
                 GuideName = values.GuideName,
                 GuideSurname = values.GuideSurname,
                 GuideDescription = values.GuideDescription,
+                GuideDescription2 = values.GuideDescription2,
                 ImageUrl = values.ImageUrl,
 
             };

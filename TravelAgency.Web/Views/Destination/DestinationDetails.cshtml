@@ -38,7 +38,7 @@
                         </div>
                     </div>
 
-                    @await Component.InvokeAsync("_CommentList",new {id = ViewBag.i});
+                    @await Component.InvokeAsync("_CommentList",new {id = ViewBag.i})
                     @await Html.PartialAsync("/Views/Comment/AddComment.cshtml", new { id = ViewBag.destId})
 
                 </div> <!-- .col-md-8 -->

@@ -6,6 +6,7 @@
         public string GuideName { get; set; }
         public string GuideSurname { get; set; }
         public string GuideDescription { get; set; }
+        public string GuideDescription2 { get; set; }
         public string ImageUrl { get; set; }
     }
 }

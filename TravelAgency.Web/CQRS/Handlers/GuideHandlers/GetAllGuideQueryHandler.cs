@@ -23,6 +23,7 @@ namespace TravelAgency.Web.CQRS.Handlers.GuideHandlers
                 GuideName = x.GuideName,
                 GuideSurname = x.GuideSurname,
                 GuideDescription = x.GuideDescription,
+                GuideDescription2 = x.GuideDescription2 ,
                 ImageUrl = x.ImageUrl
             }).AsNoTracking().ToListAsync();
         }

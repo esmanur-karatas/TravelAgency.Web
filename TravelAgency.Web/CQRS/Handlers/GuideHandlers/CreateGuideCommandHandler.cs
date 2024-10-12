@@ -26,9 +26,8 @@ namespace TravelAgency.Web.CQRS.Handlers.GuideHandlers
                 GuideName = request.GuideName,
                 GuideSurname = request.GuideSurname,
                 GuideDescription = request.GuideDescription,
+                GuideDescription2 = request.GuideDescription2,
                 ImageUrl = request.ImageUrl,
-                InstagramUrl = request.InstagramUrl,
-                TwitterUrl = request.TwitterUrl,
                 Status = true
             });
             await _context.SaveChangesAsync();
