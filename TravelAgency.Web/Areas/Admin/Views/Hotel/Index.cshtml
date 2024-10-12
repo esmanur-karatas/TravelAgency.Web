@@ -1,0 +1,49 @@
+﻿@model List<Hotels>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int sayac = 0;
+}
+
+
+<h1>Oteller</h1>
+<div class="card">
+    <div class="table-responsive text-nowrap">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Otel İsmi</th>
+                    <th>Açıklama</th>
+                    <th>Fiyat</th>
+                    <th>Kapasite</th>
+                    <th>Sitede Görüntüle</th>
+                    <th>Sil</th>
+                    <th>Güncelle</th>
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        @{
+                            sayac = @sayac + 1;
+                        }
+                        <td>@sayac</td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>@item.HotelCity</strong></td>
+                        <td>@item.HotelDescription</td>
+                        <td>@item.HotelPrice ₺</td>
+                        <td>@item.HotelCapacity</td>
+                        <td><a style="border:2px solid #000" href="/Hotel/HotelsDetails/@item.HotelId" class="badge bg-label-success me-1"><i class='bx bx-low-vision'></i>Sitede Görüntüle</a></td>
+                        <td><a style="border:2px solid #000" href="/Admin/Hotel/DeleteHotel/@item.HotelId" class="badge bg-label-danger me-1"><i class="bx bx-trash me-1"></i>Sil</td>
+                        <td><a style="border:2px solid #000" href="/Admin/Hotel/UpdateHotel/@item.HotelId" class="badge bg-label-info me-1"><i class="bx bx-edit-alt me-1"></i>Güncelle</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<br />
+<a href="/Admin/Hotel/AddHotel" class="badge bg-label-info me-1" style="border:2px solid #000"><i class="bx bx-plus me-1"></i>Otel Ekle</a>
+
+

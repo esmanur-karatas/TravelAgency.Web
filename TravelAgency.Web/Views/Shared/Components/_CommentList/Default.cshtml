@@ -1,16 +1,16 @@
 ﻿@using EntityLayer.Concrete
 @model List<Comment>
 <div class="pt-5 mt-5">
-    <h3 class="mb-5">6 Yorumlar</h3>
+    <h3 class="mb-5">@ViewBag.commentCount Yorumlar</h3>
     @foreach(var item in Model)
     {
         <ul class="comment-list">
             <li class="comment">
                 <div class="vcard bio">
-                    <img src="/direngine-master/images/person_1.jpg" alt="Image placeholder">
+                    <img src="@item.AppUser.ImageUrl" alt="Image placeholder">
                 </div>
                 <div class="comment-body">
-                    <h3>@item.CommentUser</h3>
+                    <h3>@item.AppUser.Name @item.AppUser.Surname</h3>
                     <div class="meta">@item.CommentDate.ToString("dd/MMM/yyyy/")</div>
                     <p>@item.CommentContent</p>
                     <p><a href="#" class="reply">Cevapla</a></p>

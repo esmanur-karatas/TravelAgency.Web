@@ -2,6 +2,7 @@
 <div class="comment-form-wrap pt-5">
     <h3 class="mb-5">Yorum Yap</h3>
     <form method="post" asp-action="AddComment" asp-controller="Comment" class="p-5 bg-light">
+       <input type = "hidden" name="DestinationId" value = "@ViewBag.destId" />
         <div class="form-group">
             <label for="name">Ad-Soyad *</label>
             <input type="text" name="CommentUser" class="form-control" id="name">

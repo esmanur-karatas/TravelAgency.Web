@@ -43,6 +43,9 @@ internal class Program
         builder.Services.AddScoped<IContactUsService, ContactUsManager>();
         builder.Services.AddScoped<IContactUsDal, EfContactUsDal>();
 
+        builder.Services.AddScoped<IHotelsService, HotelsManager>();
+        builder.Services.AddScoped<IHotelsDal, EfHotelsDal>();
+
         builder.Services.AddScoped<IAnnouncementService, AnnouncementManager>();
         builder.Services.AddScoped<IAnnouncementDal, EfAnnouncementDal>();
 

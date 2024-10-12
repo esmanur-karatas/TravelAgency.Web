@@ -8,9 +8,11 @@ namespace TravelAgency.Web.Controllers
     public class CommentController : Controller
     {
         CommentManager commentManager = new CommentManager(new EfCommentDal());
+        
         [HttpGet]
-        public PartialViewResult AddComment()
+        public PartialViewResult AddComment(int id)
         {
+            ViewBag.destId = id;
             return PartialView();
         }
 

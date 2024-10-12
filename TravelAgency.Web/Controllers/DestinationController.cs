@@ -23,6 +23,7 @@ namespace TravelAgency.Web.Controllers
 		{
 
             ViewBag.i = id;
+			ViewBag.destId = id;
             var values = _destinationService.TGetById(id);
 			return View(values);
 		}
