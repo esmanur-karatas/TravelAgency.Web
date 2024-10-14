@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using DTOLayer.DTOs.AnnouncementDTOs;
 using DTOLayer.DTOs.AppUserDTOs;
+using DTOLayer.DTOs.ContactDTOs;
 using EntityLayer.Concrete;
 
 namespace TravelAgency.Web.Mapping.AutoMapperProfile
@@ -25,7 +26,10 @@ namespace TravelAgency.Web.Mapping.AutoMapperProfile
             CreateMap<Announcement, AnnouncementAddDTOs>();
 
             CreateMap<AnnoucementUpdateDto, Announcement>();
-            CreateMap<Announcement, AnnoucementUpdateDto>();
+            CreateMap<Announcement, AnnoucementUpdateDto>(); 
+            
+            CreateMap<ContactUs, ContactUsDto>();
+            CreateMap<ContactUsDto, ContactUs>();
         }
     }
 }

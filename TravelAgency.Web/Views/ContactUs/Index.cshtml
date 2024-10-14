@@ -1,0 +1,67 @@
+﻿@model DTOLayer.DTOs.ContactDTOs.ContactUsDto
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UILayout.cshtml";
+}
+<div class="hero-wrap js-fullheight" style="background-image: url('https://cdnp.flypgs.com/files/Sehirler-long-tail/Munih/munih-platzl-square.jpg');">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
+            <div class="col-md-9 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
+                <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="index.html">Home</a></span> <span>Contact</span></p>
+                <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Contact Us</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<section class="ftco-section contact-section ftco-degree-bg">
+    <div class="container">
+        <div class="row d-flex mb-5 contact-info">
+            <div class="col-md-12 mb-4">
+                <h2 class="h4">İletişim Bilgileri</h2>
+            </div>
+            <div class="w-100"></div>
+            <div class="col-md-3">
+                <p><span>Adres: </span>Elazığ / Merkez</p>
+            </div>
+            <div class="col-md-3">
+                <p><span>Telefon:</span> <a href="">0555 555 5555</a></p>
+            </div>
+            <div class="col-md-3">
+                <p><span>Email:</span> <a href="mailto:esmanurkaratas0@gmail.com">esmanurkaratas0@gmail.com</a></p>
+            </div>
+        </div>
+
+        <div class="row block-9">
+            <div class="col-md-6 pr-md-5">
+                <form method="post">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Ad Soyad" asp-for="Name">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" asp-for="Mail" placeholder="Mail">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Konu" asp-for="Subject">
+                    </div>
+                    <div class="form-group">
+                        <textarea name="" id="" cols="30" rows="7" class="form-control" asp-for="MessageBody" placeholder="Mesajınız"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Gönder" class="btn btn-primary py-3 px-5">
+                    </div>
+                </form>
+
+            </div>
+
+            <div class="col-md-6" id="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d49844.976532697954!2d39.156952220120914!3d38.6647193435239!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4076c06c76eaf697%3A0x12dab4118a3d2f39!2zRWzDonrEscSfLCBFbMOiesSxxJ8gTWVya2V6L0VsYXrEscSf!5e0!3m2!1str!2str!4v1728818288120!5m2!1str!2str" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
