@@ -24,7 +24,7 @@ namespace SignalRApi.Model
         {
             await _context.Visitors.AddAsync(visitor);
             await _context.SaveChangesAsync();
-            await _hubContext.Clients.All.SendAsync("CallVisitorList", GetVisitorChartList());
+            await _hubContext.Clients.All.SendAsync("CallVisitorList", "aaa");
         }
         public List<VisitorChart> GetVisitorChartList()
         {
