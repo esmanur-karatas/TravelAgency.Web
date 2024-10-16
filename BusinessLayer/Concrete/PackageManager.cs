@@ -34,6 +34,11 @@ namespace BusinessLayer.Concrete
             return _packageDal.GetByID(id);
         }
 
+        public List<Package> TGetPackage()
+        {
+            return _packageDal.GetPackage();
+        }
+
         public void TUpdate(Package t)
         {
             _packageDal.Update(t);

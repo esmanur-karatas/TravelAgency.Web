@@ -52,6 +52,9 @@ internal class Program
         builder.Services.AddScoped<IAnnouncementService, AnnouncementManager>();
         builder.Services.AddScoped<IAnnouncementDal, EfAnnouncementDal>();
 
+        builder.Services.AddScoped<IPackageService, PackageManager>();
+        builder.Services.AddScoped<IPackageDal, EfPackageDal>();
+
         builder.Services.AddScoped<GetAllDestinationQueryHandler>();
         builder.Services.AddScoped<GetDestinationByIdQueryHandler>();
         builder.Services.AddScoped<CreateDestinationCommandHandler>();
@@ -61,6 +64,10 @@ internal class Program
         builder.Services.AddAutoMapper(typeof(Program));
         builder.Services.AddMediatR(typeof(Program));
 
+        builder.Services.ConfigureApplicationCookie(options =>
+        {
+            options.LoginPath = "/Login/SignIn";
+        });
         //LOGLAMA ÝÞLEMLERÝ
         builder.Services.AddLogging(x =>
         {

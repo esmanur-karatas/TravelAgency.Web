@@ -1,0 +1,74 @@
+﻿@{
+    ViewData["Title"] = "Index3";
+}
+@section Scripts
+{
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(() => {
+
+            // Grafik verilerini tutacak liste
+            var visitChartList = [];
+
+            // İlk satırda başlık bilgilerini ekliyoruz
+            visitChartList.push(["Tarih", "Antalya", "Ankara", "Adana", "Adıyaman", "Elazığ"]);
+
+            // SignalR bağlantısını oluştur
+            var connection = new signalR.HubConnectionBuilder().withUrl("http://localhost:25059/VisitorHub").build();
+
+            // Bağlantı durumu başlangıçta gösteriliyor
+            $("#connectionStatus").text("Bağlanıyor...");
+
+            // Bağlantı başlatıldıktan sonra güncelleme
+            connection.start().then(() => {
+                $("#connectionStatus").text("Bağlantı başarılı"); // Bağlantı başarılı
+                connection.invoke("GetVisitorList"); // Sunucudan veri talep et
+            }).catch((err) => {
+                $("#connectionStatus").text("Bağlantı başarısız"); // Bağlantı başarısızsa hata göster
+                console.log(err);
+            });
+
+            // Sunucudan veri alındığında tetiklenen fonksiyon
+            connection.on("ReceiveVisitorList", (visitList) => {
+                // Grafik verilerini temizleyip, başlığı koruyarak yeniden ekliyoruz
+                visitChartList = visitChartList.slice(0, 1);
+
+                // Yeni verileri ekliyoruz
+                visitList.forEach((item) => {
+                    visitChartList.push([item.visitDate, item.counts[0], item.counts[1], item.counts[2], item.counts[3], item.counts[4]]);
+                });
+
+                // Google Charts'ı yükleyip grafiği çiz
+                google.charts.load('current', { 'packages': ['corechart'] });
+                google.charts.setOnLoadCallback(drawChart);
+            });
+
+            // Grafiği çizen fonksiyon
+            function drawChart() {
+                var data = google.visualization.arrayToDataTable(visitChartList);
+
+                var options = {
+                    title: 'Traversal Ziyaretçi Listesi Grafiği',
+                    curveType: 'none',
+                    legend: { position: 'bottom' }
+                };
+
+                var chart = new google.visualization.ColumnChart(document.getElementById('curve_chart'));
+                chart.draw(data, options);
+            }
+        });
+    </script>
+}
+
+<div class="container">
+    <br />
+    <div class="alert alert-warning">
+        Bağlantınızın Durumu: <b id="connectionStatus"></b>
+    </div>
+</div>
+<br />
+
+<div id="curve_chart" style="width: 1200px; height: 800px"></div>

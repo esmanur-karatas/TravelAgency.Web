@@ -1,0 +1,32 @@
+﻿@model List<RoleAssignViewModel>
+@{
+    ViewData["Title"] = "AssignRole";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Rol Atama Sayfası</h1>
+
+<form method="post">
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        <div class="card ">
+            <div class="table-responsive text-nowrap form-check">
+            <input type="hidden" asp-for="@Model[i].RoleId" />
+            <input type="hidden" asp-for="@Model[i].RoleName" />
+                <select  class="form-select">
+                    <option value="">Seçiniz</option>
+                    @foreach (var role in Model)
+                    {
+                        <option value="@role.RoleName">@role.RoleName</option>
+                    }
+                </select>
+
+
+        </div>
+        </div>
+    }
+    
+    <br />
+    <button style="border:2px solid #000" class="badge bg-label-success me-1"><i class="bx bx-send me-1"></i>Kaydet</button>
+</form>
+

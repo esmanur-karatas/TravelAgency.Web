@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using SignalRConsume.Models;
 using System.Diagnostics;
 
@@ -27,6 +27,8 @@ namespace SignalRConsume.Controllers
         {
             return View();
         }
+        
+
         public IActionResult Privacy()
         {
             return View();

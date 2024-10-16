@@ -1,6 +1,0 @@
-@SignalRConsume_HostAddress = http://localhost:5124
-
-GET {{SignalRConsume_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

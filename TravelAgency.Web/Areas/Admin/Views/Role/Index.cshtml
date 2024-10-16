@@ -1,0 +1,55 @@
+﻿@model List<AppRole>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<h1>Duyuru Listesi</h1>
+<div class="card">
+    <div class="table-responsive text-nowrap">
+        @if (Model.Count > 0)
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Rol Adı</th>
+                        <th>Kullanıcı Listesi</th>
+                        <th>Güncelle</th>
+                        <th>Sil</th>
+                    </tr>
+                </thead>
+                <tbody class="table-border-bottom-0">
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            @{
+                                count = @count + 1;
+                            }
+                            <td>@count</td>
+                            <td><i class="fab fa-angular fa-lg text-danger me-3"></i><strong>@item.Name</strong></td>
+                            <td><a style="border:2px solid #000" href="/Admin/Role/UserList/" class="badge bg-label-primary me-1"><i class='bx bx-list-ul'></i>Kullanıcı Listesi</a></td>
+                            <td><a style="border:2px solid #000" href="/Admin/Role/UpdateRole/@item.Id" class="badge bg-label-success me-1"><i class="bx bx-edit-alt me-1"></i>Güncelle</a></td>
+                            <td><a style="border:2px solid #000" href="/Admin/Role/DeleteRole/@item.Id" class="badge bg-label-danger me-1"><i class="bx bx-trash me-1"></i>Sil</a></td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <br />
+            <div class="alert alert-success">
+                <span>
+                    Herhangi Bir Rol Bulunamadı.
+
+                </span>
+            </div>
+        }
+    </div>
+</div>
+<br />
+<a href="/Admin/Role/CreateRole" class="badge bg-label-info me-1" style="border:2px solid #000"><i class="bx bx-plus me-1"></i>Yeni Role Ekle</a>
