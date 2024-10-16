@@ -21,18 +21,11 @@
                         </a>
                         <div class="text p-3">
                             <h3><a href="#">@item.RestuarantName</a></h3>
-                            <p class="rate">
-                                <i class="icon-star"></i>
-                                <i class="icon-star"></i>
-                                <i class="icon-star"></i>
-                                <i class="icon-star"></i>
-                                <i class="icon-star-o"></i>
-                            </p>
-                            <p>@item.RestuarantDescription</p>
+                            <p>@item.RestuarantDescription.Substring(0, 100)...</p>
                             <hr>
                             <p class="bottom-area d-flex">
                                 <span><i class="icon-map-o"></i>@item.RestuarantCity</span>
-                                <span class="ml-auto"><a href="#">Discover</a></span>
+                                <span class="ml-auto"><a href="/Restuarant/Index/@item.RestuarantId">Keşfet</a></span>
                             </p>
                         </div>
                     </div>

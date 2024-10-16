@@ -1,0 +1,54 @@
+﻿@model EntityLayer.Concrete.Restuarant
+@{
+    ViewData["Title"] = "UpdateRestuarant";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<h1>Resturanları Güncelle</h1>
+<div class="row">
+    <div class="col-xl">
+        <div class="card mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <small class="text-muted float-end">Güncelle</small>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    @Html.HiddenFor(x => x.RestuarantId)
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-fullname">@Html.Label("Resturant Adı")</label>
+                        <input type="text" class="form-control" id="basic-default-fullname" asp-for="RestuarantName" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-fullname">@Html.Label("Görsel Url")</label>
+                        <input type="text" class="form-control" id="basic-default-fullname" asp-for="RestuarantImageUrl" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-email">@Html.Label("Kapasite")</label>
+                        <div class="input-group input-group-merge">
+                            <input type="text" id="basic-default-email" class="form-control" asp-for="RestuarantStatus" />
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-company">@Html.Label("şehir")</label>
+                        <input type="text" class="form-control" id="basic-default-company" asp-for="RestuarantCity" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-phone">@Html.Label("Açıklama")</label>
+                        <input type="text" id="basic-default-phone" class="form-control phone-mask" asp-for="RestuarantDescription" />
+                    </div>
+                    <button class="badge bg-label-info me-1"><i class="bx bx-edit-alt me-1"></i>Güncelle</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

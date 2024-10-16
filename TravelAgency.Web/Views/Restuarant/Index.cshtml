@@ -1,0 +1,73 @@
+﻿@model List<Restuarant>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UILayout.cshtml";
+}
+
+<body>
+	<div class="hero-wrap js-fullheight" style="background-image: url('/direngine-master/images/bg_3.jpg');">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
+				<div class="col-md-9 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
+					<p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="/Default/Index">Anasayfa</a></span> <span>Rotalar</span></p>
+					<h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Turlar</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br />
+	<br />
+	<br />
+	<br />
+	<section class="ftcok-ssection ftco-degree-bg">
+		<div class="container">
+			<div class="row">
+				
+				<div class="col-lg-9">
+					<div class="row">
+						<!--DESTİNATON-->
+						@foreach (var item in Model)
+						{
+							<div class="col-md-4 ftco-animate">
+								<div class="destination">
+									<a href="/Restuarant/RestuarantDetails/@item.RestuarantId" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url('@item.RestuarantImageUrl');">
+										<div class="icon d-flex justify-content-center align-items-center">
+											<span class="icon-search2"></span>
+										</div>
+									</a>
+									<div class="text p-3">
+										<div class="d-flex">
+											<div class="one">
+												<h3><a href="#">@item.RestuarantName</a></h3>
+												<p class="rate">
+													<i class="icon-star"></i>
+													<i class="icon-star"></i>
+													<i class="icon-star"></i>
+													<i class="icon-star"></i>
+													<i class="icon-star-o"></i>
+													<span>@item.RestuarantStatus</span>
+												</p>
+											</div>
+											
+										</div>
+										<p>@item.RestuarantDescription.Substring(0,100)...</p>
+										<hr>
+										<p class="bottom-area d-flex">
+											<span class="ml-auto"><a href="/Restuarant/RestuarantDetails/@item.RestuarantId">Keşfetmek</a></span>
+										</p>
+									</div>
+								</div>
+							</div>
+
+						}
+
+						<!--DESTİNATİON END-->
+					</div>
+					
+				</div> <!-- .col-md-8 -->
+			</div>
+		</div>
+	</section> <!-- .section -->
+</body>
+

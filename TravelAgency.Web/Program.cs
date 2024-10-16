@@ -55,6 +55,9 @@ internal class Program
         builder.Services.AddScoped<IPackageService, PackageManager>();
         builder.Services.AddScoped<IPackageDal, EfPackageDal>();
 
+        builder.Services.AddScoped<IRestuarantService, RestuarantManager>();
+        builder.Services.AddScoped<IRestuarantDal, EfRestuarantDal>();
+
         builder.Services.AddScoped<GetAllDestinationQueryHandler>();
         builder.Services.AddScoped<GetDestinationByIdQueryHandler>();
         builder.Services.AddScoped<CreateDestinationCommandHandler>();
