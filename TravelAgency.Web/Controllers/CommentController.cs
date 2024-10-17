@@ -20,8 +20,8 @@ namespace TravelAgency.Web.Controllers
         public PartialViewResult AddComment(int id)
         {
             ViewBag.destId = id;
-            //var values = await _userManager.FindByNameAsync(User.Identity.Name);
-            //ViewBag.UserId = values.Id;
+            //var values = await _usermanager.findbynameasync(user.ıdentity.name);
+            //viewbag.userıd = values.ıd;
             return PartialView();
         }
 

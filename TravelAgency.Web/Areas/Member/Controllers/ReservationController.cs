@@ -54,10 +54,10 @@ namespace TravelAgency.Web.Areas.Member.Controllers
         [HttpPost]
         public IActionResult NewReservation(Reservation p)
         {
-            p.AppUserId = 21;
+            p.AppUserId = 6;
             p.Status = "Onay Bekliyor";
             reservationManager.TAdd(p);
-            return RedirectToAction("MyCurrentReservation");
+            return RedirectToAction("Index");
         }
     }
 }
